@@ -6,3 +6,5 @@
  Copy the project url and enter
 
 Make a note to on git process
+
+Demonstrate changes in git commit
