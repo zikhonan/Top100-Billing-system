@@ -4,53 +4,78 @@
         <link rel="stylesheet" type="text/css" media="screen" href="bulma.css"/>
     </head>  
     <body>
+        
         <h2> This is an example of a form</h2>
         <div class="container is-fluid">
             <form class="form">
                 <div class="field">
                     <label class="label">Name</label>
-                    <input class="input" type="text" onmouseover="you hovered over a name"/>
+                    <input id="Name"
+                     class="input"
+                    type="text" />
                 </div>
                 
                 <div class="field">
                     <label class="label">Middle Name</label>
-                    <input class="input" type="text" />
+                    <input 
+                    id="MiddleName"
+                    class="input" 
+                    type="text" />
                 </div>
 
                 <div class="field">
                     <label class="label">Surname</label>
-                    <input class="input" type="text"/>
+                    <input 
+                    id="Surname"
+                    class="input" 
+                    type="text" />
                 </div>
 
                 <div class="field">
                     <label class="label">Age</label>
-                    <input class="input" type="number"/>
+                    <input 
+                    id="Age"
+                    class="input" 
+                    type="number"/>
                 </div>
 
                 <div class="field">
                     <label class="label">Gender</label>
-                    <input class="input" type="text"/>
+                    <input 
+                    id="Gender"
+                     class="input" 
+                     type="text"/>
                 </div>
 
                 <div class="field">
                     <label class="label">Address</label>
-                    <input class="input" type="text"/>
+                    <input 
+                    id="Address"
+                    class="input" 
+                    type="text"/>
                 </div>
 
                 <div class="field">
                     <label class="label">Phone Number</label>
-                    <input class="input" type="number"/>
+                    <input 
+                    id="PhoneNumber"
+                    class="input" 
+                    type="number"/>
                 </div>
 
 
                 <div class="field">
-                    <input type="submit" value="submit" class="button is-primary" onclick="alert" clicked on submit button />
+                    <input 
+                    id="submit"
+                    type="submit" 
+                    value="submit" 
+                    class="button is-primary" />
                 </div>
 
             </form>
     </div>
 
-        </body>
         
+        <script src="script.js" ></script>
     </body>
 </html>

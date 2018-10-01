@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title> My second HTML page</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="bulma.css"/>
+    </head>  
+    <body>
+        <script>
+            window.onload =function () {
+            var submitButton =document.getElementById('submit')
+            
+            submitButton.addEventListener('click',function(event){
+                alert('you have clicked submit again')
+            })
+        </script>
+
+
+        <h2> This is an example of a form</h2>
+        <div class="container is-fluid">
+            <form class="form">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <input id="Name"
+                     class="input"
+                    type="text" />
+                </div>
+                
+                <div class="field">
+                    <label class="label">Middle Name</label>
+                    <input 
+                    id="Middle Name"
+                    class="input" 
+                    type="text" />
+                </div>
+
+                <div class="field">
+                    <label class="label">Surname</label>
+                    <input 
+                    id="Surname"
+                    class="input" 
+                    type="text" />
+                </div>
+
+                <div class="field">
+                    <label class="label">Age</label>
+                    <input 
+                    id="Age"
+                    class="input" 
+                    type="number"/>
+                </div>
+
+                <div class="field">
+                    <label class="label">Gender</label>
+                    <input 
+                    id="Gender"
+                     class="input" 
+                     type="text"/>
+                </div>
+
+                <div class="field">
+                    <label class="label">Address</label>
+                    <input 
+                    id="Address"
+                    class="input" 
+                    type="text"/>
+                </div>
+
+                <div class="field">
+                    <label class="label">Phone Number</label>
+                    <input 
+                    id="Phone Number"
+                    class="input" 
+                    type="number"/>
+                </div>
+
+
+                <div class="field">
+                    <input type="submit" value="submit" 
+                    class="button is-primary" />
+                </div>
+
+            </form>
+    </div>
+
+        </body>
+        
+    </body>
+</html>
