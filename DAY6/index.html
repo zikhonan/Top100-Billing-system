@@ -37,12 +37,44 @@
 
             </form>
             <form class="agencies" id ='agencies-list'>
+            <div class="field" >
+                <input type="submit" 
+                id="submit-lines"
+                class="button is-primary" >
 
 
-            </form>
-            <div id="result" class ="container is-primary">
-                result goes here
+
+            <!-- This will list the agencies-->
+         <form class="form is-half" id="agencies">
+             <div class="field">
+                <label class="label">Agencies</label>
+                 <select id="agencies-select" type="text" >
+                    <option value="" disabled="disabled">No agencies available</option>
+                </select>
+             </div>
+        
+            <div class="field">
+                <input type="submit" id="submit-agency" class="button is-primary"/>
             </div>
+         </form>
+
+
+
+            <!-- this form will list the lines-->
+             <form class="form is-half" id="lines">
+                 <div class="field">
+                    <label class="label">Lines</label>
+                    <select id="lines-select" type="text" >
+                        <option value="" disabled="disabled">No lines available</option>
+                     </select> 
+                </div>   
+            
+                </div>
+
+             </form>
+                <div id="result" class ="container is-primary">
+                result goes here
+                </div>
 
             
 
