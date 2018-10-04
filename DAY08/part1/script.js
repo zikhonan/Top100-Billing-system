@@ -3,33 +3,19 @@ window.onload =function () {
 
   try {
     
-    getAgencies(getToken())
-    show('agencies')
+    getToken()
+    show('journey-form')
   }catch (error){
   console.log("Unable to get token")
   
   }
+
   loadMap()
-  loadButtonEvents ()
 
     if (hasToken()) {
       getAgencies(this.localStorage.getItem('token'))
       //getAgencies(this.localStorage.getItem('token'))
     }
-
-
-    
-    
-
-  function loadMap() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiemlraG9uYW4iLCJhIjoiY2ptdDhmaGczMTd1czNrbDg5MTRoZXc3YSJ9.E-GocNkDS6sjpjBdpk4Tdg';
-    var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
-  });
-  }
-
-  loadButtonEvents() 
 
     var submitButton =this.document.getElementById('submit')
     submitButton.addEventListener('click', function(event){
@@ -51,6 +37,16 @@ window.onload =function () {
         show('logout-form')
     })
 
+    var journeyButton =document.getElementById('jouney-buttin')
+    journeyButton.addEventListener('click' , function(event) {
+      event.preventDefault()
+      var start =document.getElementById('start').value
+      var destination = document.getElementById('destination').value
+
+      alert(start + '' + destination)
+    })
+  }
+
     var submitAgencyButton =this.document.getElementById('submit-agency')
     submitAgencyButton.addEventListener('click', function(event){
       event.preventDefault()
@@ -68,14 +64,46 @@ window.onload =function () {
       event.preventDefault()
         show('agencies')
     })
-}
 
-  
+ function loadMap(){
+    mapboxgl.accessToken = 'pk.eyJ1IjoiemlraG9uYW4iLCJhIjoiY2ptdDhmaGczMTd1czNrbDg5MTRoZXc3YSJ9.E-GocNkDS6sjpjBdpk4Tdg';
+    window.map = new mapboxgl.Map({
+    container: 'map',
+   style: 'mapbox://styles/mapbox/streets-v10',
+    center:[18.4241,-33.9249],
+     zoom:9
+  })
+  window.startPin = new mapboxgl.Marker({draggable:true}).setLngLat([0,0]). addTo(window.map)
+  window.destinationPin = new mapboxgl.Marker({draggable:true}).setLngLat([0,0]). addTo(window.map)
+
+  window.map.on('click' ,function (event) {
+    console.log(event)
+   
+    if(window.startPoint == true) {
+      window.destinationPin.setLngLat(event.lngLat)
+      window.startPoint = false 
+      document.getElementById('destination').value =event.lngLat.lng +',' +event.lngLat.lat
+    } else{
+      window.startPin.setLngLat(event.lngLat)
+      window.startPoint = true
+      document.getElementById('start').value =event.lngLat.lng +',' +event.lngLat.lat
+
+    } 
+
+    })
+ 
+
+ }
+
+
 function show(formId) {
   document.getElementById('login-form').style.display='none'
   document.getElementById('agencies').style.display='none'
   document.getElementById('lines').style.display='none'
   document.getElementById('logout-form').style.display='none'
+  document.getElementById('journey-form').style.display='none'
+  
+
 
   document.getElementById(formId).style.display ='block'
   if(formId != 'login-form'){
@@ -121,10 +149,6 @@ function getClientSecret() {
   return clientSecret.value
 
 }
-
-
-
-
 function login(clientId,clientSecret) {
 
 // create a client here: https://developer.whereismytransport.com/clients
@@ -148,7 +172,7 @@ request.addEventListener('load', function () {
       localStorage.setItem('token', token)
       localStorage.setItem('storageDate',Date.now().toLocaleString())
     }
-    show(agencies)
+    show('journey-form')
 
 });
 request.setRequestHeader('Accept', 'application/json');

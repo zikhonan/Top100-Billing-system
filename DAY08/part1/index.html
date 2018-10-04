@@ -2,6 +2,9 @@
     <head>
         <title> My second HTML page</title>
         <link rel="stylesheet" type="text/css" media="screen" href="bulma.css"/>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+
     </head> 
     <br> 
     <body>
@@ -63,11 +66,8 @@
 
                       
                     </form>
-                </div>
-
-                        
-            
-                      
+                </div>      
+                                             
          <!-- this logout form-->
             <div class="container" id="logout-form">
                 <form class="form is-half">
@@ -80,7 +80,29 @@
 
                     </div>
                 </form>
+
+                <!-- this journey form-->
+                <div class="container "id ="journey-form">
+                        <form class= "form">
+                            <div class="field">
+                                <label class="label">START :</label> 
+                                    <input class="input" id="start">
+                    </div>
+                  
+                    <div class="field">
+                      <label class="label">DESTINATION :</label>
+                        <input class="input" id="destination">
+                    </div>
+    
+                        <div class="field">
+                            <input class="button is-primary" id="journey-form" value="search">
+                        </div>
+                    </form>
+                    </div>
+
+                <div id='map' style='width: 100%; height: 600px;'></div>
             
+        
         
         
         <script src="script.js" ></script>

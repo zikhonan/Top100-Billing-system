@@ -9,8 +9,6 @@ window.onload =function () {
   console.log("Unable to get token")
   
   }
-  loadMap()
-  loadButtonEvents ()
 
     if (hasToken()) {
       getAgencies(this.localStorage.getItem('token'))
@@ -19,18 +17,6 @@ window.onload =function () {
 
 
     
-    
-
-  function loadMap() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiemlraG9uYW4iLCJhIjoiY2ptdDhmaGczMTd1czNrbDg5MTRoZXc3YSJ9.E-GocNkDS6sjpjBdpk4Tdg';
-    var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
-  });
-  }
-
-  loadButtonEvents() 
-
     var submitButton =this.document.getElementById('submit')
     submitButton.addEventListener('click', function(event){
       event.preventDefault()
@@ -70,7 +56,7 @@ window.onload =function () {
     })
 }
 
-  
+
 function show(formId) {
   document.getElementById('login-form').style.display='none'
   document.getElementById('agencies').style.display='none'
